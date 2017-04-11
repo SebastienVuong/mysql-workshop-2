@@ -1,0 +1,17 @@
+= EXERCISE 1
+mysql -usebastienvuong < data/import-table-structure
+
+
+= EXERCISE 2
+INSERT INTO decodemtl_addressbook.Account 
+    VALUE (1,'sebastien.vuong.teamcanada@gmail.com', 'cacacaca', '1990-09-18', '2015-09-18');
+INSERT INTO decodemtl_addressbook.AddressBook 
+    VALUE (1,'sinriver', 'Sin River', '1990-09-18', '2015-09-18');
+INSERT INTO Entry 
+    VALUES 
+        (2, 220, 'Jane', 'Wu', '1990-01-01',
+            'home','phone','1','866','430','8193','ext. 293'), 
+        (3, 220, 'Jane', 'Wu', '1990-01-01',
+            'work','phone','1','866','431','8193','ext. 293'), 
+        (4, 220, 'Jane', 'Wu', '1990-01-01',
+            'other','phone','1','866','432','8193','ext. 293');
