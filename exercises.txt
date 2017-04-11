@@ -15,3 +15,59 @@ INSERT INTO Entry
             'work','phone','1','866','431','8193','ext. 293'), 
         (4, 220, 'Jane', 'Wu', '1990-01-01',
             'other','phone','1','866','432','8193','ext. 293');
+            
+
+= EXERCISE 3
+SELECT * FROM decodemtl_addressbook.Account;
+SELECT * FROM decodemtl_addressbook.AddressBook;
+SELECT * FROM decodemtl_addressbook.Entry;
+
+
+= EXERCISE 4
+UPDATE decodemtl_addressbook.Account 
+    SET password = 'pipipipi' 
+    HERE email = 'sebastien.vuong.teamcanada@gmail.com';
+UPDATE decodemtl_addressbook.AddressBook 
+    SET accountId = 'Baby Luz' 
+    WHERE name = 'Sin River';
+UPDATE decodemtl_addressbook.Entry 
+    SET lastName = 'Wonton' 
+    WHERE firstName = 'Jane';
+    
+
+= EXERCISE 5
+TRUNCATE decodemtl_addressbook.Entry;
+
+
+= EXERCISE 6
+DROP TABLE decodemtl_addressbook.Account;
+
+
+= EXERCISE 7
+mysql -usebastienvuong decodemtl_addressbook_import < data/import-table-structure.sql;
+mysql -usebastienvuong decodemtl_addressbook_import < data/import-account.sql;
+mysql -usebastienvuong decodemtl_addressbook_import < data/import-addressbook.sql;
+mysql -usebastienvuong decodemtl_addressbook_import < data/import-entry.sql;
+
+
+= EXERCISE 8
+SELECT email FROM Account WHERE id = 63;
+SELECT name FROM AddressBook WHERE accountId = 3;
+SELECT createdOn FROM AddressBook WHERE name = 'Lorem Foundation';
+
+
+= EXERCISE 9
+SELECT COUNT(*) FROM Account;
+SELECT COUNT(*) FROM AddressBook;
+SELECT COUNT(*) FROM Entry;
+
+
+= EXERCISE 10
+SELECT COUNT(*) FROM Entry WHERE birthday < '1982-02-12';
+SELECT COUNT(*) FROM Entry WHERE birthday >= '1965-01-01';
+SELECT * FROM Entry WHERE birthday = (SELECT MIN(birthday) FROM Entry);
+
+= EXERCISE 11
+SELECT COUNT(*) FROM Entry WHERE type != 'other';
+SELECT COUNT(*) FROM Entry WHERE type = 'home' OR type = 'work';
+SELECT COUNT(*) FROM Entry WHERE subType = 'phone';
